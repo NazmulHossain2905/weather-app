@@ -4,10 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <h1>Weather App</h1>
+    <main class="weather-app">
+      <section class="current-weather">
+        <div class="app-name"><b>the.weather</b></div>
+
+        <img
+          class="weather-image"
+          src="./assets/images/balloon-2.webp"
+          alt="Balloon"
+        />
+
+        <img
+          class="weather-image-2"
+          src="./assets/images/balloon-3.png"
+          alt="Balloon"
+        />
+
+        <div class="weather-info">
+          <h1 class="temperature">26°</h1>
+
+          <div class="location-info">
+            <h2 class="city">London</h2>
+            <p class="time">10:36 - Tuesday, 22 Oct 2022</p>
+          </div>
+
+          <div class="weather-description">
+            <img
+              class="weather-icon"
+              src="./assets/images/clear-sky.png"
+              alt="Weather"
+            />
+            <p class="weather-condition">Sunny</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="search-section">
+        <input
+          class="location-search"
+          type="text"
+          placeholder="Search location"
+        />
+
+        <ul class="location-list">
+          <li class="location-item">Birmingham</li>
+          <li class="location-item">Manchester</li>
+          <li class="location-item">Bangladesh</li>
+          <li class="location-item">Jessore</li>
+        </ul>
+
+        <b class="details-heading">Weather Details</b>
+
+        <ul class="weather-details-list">
+          <li class="weather-detail">Cloudy <b class="percentage">12%</b></li>
+          <li class="weather-detail">Humidity <b class="humidity">78%</b></li>
+          <li class="weather-detail">Wind <b class="wind-speed">1km/h</b></li>
+          <li class="weather-detail">Rain <b class="rainfall">0mm</b></li>
+        </ul>
+      </section>
+    </main>
 
     <script src="./assets/app.js"></script>
   </body>
