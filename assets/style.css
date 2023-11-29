@@ -278,8 +278,7 @@ body {
   }
 
   .time {
-    color: var(--light-color);
-    font-size: small;
+    display: none;
   }
 
   .weather-description {
