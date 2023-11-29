@@ -29,7 +29,9 @@
         />
 
         <div class="weather-info">
-          <h1 class="temperature">26°</h1>
+          <h1 class="temperature">
+            26<sup style="font-weight: 500; font-size: 5rem">&deg;c</sup>
+          </h1>
 
           <div class="location-info">
             <h2 class="city">London</h2>
@@ -39,7 +41,7 @@
           <div class="weather-description">
             <img
               class="weather-icon"
-              src="./assets/images/clear-sky.png"
+              src="https://openweathermap.org/img/wn/$01d@4x.png"
               alt="Weather"
             />
             <p class="weather-condition">Sunny</p>
@@ -53,6 +55,7 @@
           type="text"
           placeholder="Search location"
         />
+        <b class="details-heading">Recently search</b>
 
         <ul class="location-list">
           <li class="location-item">Birmingham</li>
@@ -64,11 +67,26 @@
         <b class="details-heading">Weather Details</b>
 
         <ul class="weather-details-list">
-          <li class="weather-detail">Cloudy <b class="percentage">12%</b></li>
+          <li class="weather-detail">Pressure <b class="pressure">120</b></li>
           <li class="weather-detail">Humidity <b class="humidity">78%</b></li>
           <li class="weather-detail">Wind <b class="wind-speed">1km/h</b></li>
-          <li class="weather-detail">Rain <b class="rainfall">0mm</b></li>
+          <li class="weather-detail">
+            Visibility <b class="visibility">4.0km</b>
+          </li>
         </ul>
+
+        <div class="footer">
+          <b>&copy; Nazmul Hossain - 2023</b> •
+          <a href="https://github.com/NazmulHossain2905" target="_blank"
+            >GitHub</a
+          >
+          •
+          <a
+            href="https://github.com/NazmulHossain2905/weather-app"
+            target="_blank"
+            >Source Code</a
+          >
+        </div>
       </section>
     </main>
 

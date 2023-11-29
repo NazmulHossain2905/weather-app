@@ -23,6 +23,7 @@
 
 body {
   font-family: var(--font-family);
+  background: url("./images/bg.jpg") center no-repeat;
 }
 
 .weather-app {
@@ -31,13 +32,13 @@ body {
 }
 
 .current-weather {
-  background: linear-gradient(
+  /* background: linear-gradient(
     -45deg,
     var(--secondary-color),
     var(--primary-color)
-  );
+  ); */
   padding: 2.5rem;
-  width: 65%;
+  width: 70%;
   position: relative;
   overflow: hidden;
 }
@@ -56,6 +57,7 @@ body {
   animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  filter: blur(0.5px);
 }
 
 .weather-image-2 {
@@ -101,13 +103,15 @@ body {
 .weather-info {
   position: absolute;
   bottom: 0;
-  padding-bottom: 1rem;
-  padding-inline: 2.5rem;
+  /* padding-bottom: 1rem; */
+  padding-inline: 4rem 2.5rem;
   width: 100%;
   right: 0;
   display: flex;
   gap: 4rem;
   align-items: center;
+  backdrop-filter: blur(5px);
+  background-color: #00000008;
 }
 
 .temperature {
@@ -134,14 +138,21 @@ body {
 }
 
 .weather-icon {
-  width: 3.5rem;
+  width: 7rem;
+  aspect-ratio: 1;
   object-fit: contain;
 }
 
+.weather-condition {
+  margin-top: -1rem;
+}
+
 .search-section {
-  background: linear-gradient(var(--smooth-color-1), var(--smooth-color-2));
+  /* background: linear-gradient(var(--smooth-color-1), var(--smooth-color-2)); */
   padding: 2.5rem;
-  width: calc(100% - 65%);
+  width: calc(100% - 70%);
+  backdrop-filter: blur(5rem);
+  background-color: #00000080;
 }
 
 .location-search {
@@ -153,7 +164,7 @@ body {
   padding-inline-start: 0;
   width: 100%;
   font-size: 1.1rem;
-  color: var(--deep-text-color);
+  color: var(--secondary-color);
 }
 
 .location-search::placeholder {
@@ -161,7 +172,7 @@ body {
 }
 
 .location-list {
-  margin-top: 3rem;
+  margin-top: 2rem;
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -172,6 +183,11 @@ body {
   color: var(--deep-text-color);
   cursor: pointer;
   font-size: 1.1rem;
+  transition: color 0.2s ease;
+  text-transform: capitalize;
+}
+.location-item:hover {
+  color: var(--secondary-color);
 }
 
 .details-heading {
@@ -198,4 +214,19 @@ body {
 
 .weather-detail > b {
   color: var(--secondary-color);
+}
+
+.footer {
+  color: var(--deep-text-color);
+  font-size: small;
+  position: absolute;
+  bottom: 1rem;
+}
+
+.footer > a {
+  color: var(--deep-text-color);
+  transition: color 0.2s linear;
+}
+.footer > a:hover {
+  color: var(--primary-color);
 }
