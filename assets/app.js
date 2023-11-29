@@ -114,7 +114,7 @@ const getWeatherRequest = async (cityName) => {
     const jsonData = await await response.json();
     if (jsonData.cod !== "404") {
       displayWeatherData(jsonData);
-      recentlySearched(cityName);
+      recentlySearched(cityName?.toLowerCase());
     }
   } catch (error) {
     console.log(error.message);
