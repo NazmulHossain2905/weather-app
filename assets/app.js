@@ -10,6 +10,9 @@ const windSpeedEl = document.querySelector(".wind-speed");
 const visibilityEl = document.querySelector(".visibility");
 const locationList = document.querySelector(".location-list");
 
+const API_KEY = "f90f5836325e7f4d780c377332d00c71";
+const BASE_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric`;
+
 // Utilities Functions
 const saveData = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
@@ -95,12 +98,15 @@ const displayWeatherData = (weatherData) => {
   visibilityEl.textContent = Math.round(visibility / 1000).toFixed(1) + "km";
 };
 
-const getWeatherRequest = async (cityName) => {
+const getWeatherRequest = async (cityName, coords) => {
   try {
-    const API_KEY = "f90f5836325e7f4d780c377332d00c71";
-    const BASE_URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric`;
+    const url =
+      cityName === null
+        ? `${BASE_URL}&lat=${coords.latitude}&lon=${coords.longitude}`
+        : `${BASE_URL}&q=${cityName}`;
 
-    const response = await fetch(`${BASE_URL}&q=${cityName}`);
+    const response = await fetch(url);
+    const jsonData = await response.json();
 
     switch (response.status) {
       case 404: {
@@ -111,17 +117,14 @@ const getWeatherRequest = async (cityName) => {
       }
     }
 
-    const jsonData = await await response.json();
     if (jsonData.cod !== "404") {
       displayWeatherData(jsonData);
-      recentlySearched(cityName?.toLowerCase());
+      recentlySearched(jsonData.name?.toLowerCase());
     }
   } catch (error) {
     console.log(error.message);
   }
 };
-
-getWeatherRequest("jessore");
 
 const currentTimeAndDate = () => {
   const date = new Date();
@@ -166,3 +169,16 @@ let times = setInterval(() => {
   time.textContent = currentTimeAndDate();
 }, 5000);
 time.textContent = currentTimeAndDate();
+
+window.onload = function () {
+  navigator.geolocation.getCurrentPosition(
+    (success) => {
+      getWeatherRequest(null, success.coords);
+      // console.log(success.coords);
+    },
+    (error) => {
+      getWeatherRequest("dhaka");
+      console.log(error);
+    }
+  );
+};
